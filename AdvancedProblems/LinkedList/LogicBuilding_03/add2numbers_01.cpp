@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+#include "../Node.h"
+using namespace std;
+
+class Solution {
+public:
+    Node* addTwoNumbers(Node* l1, Node* l2) {
+        Node* dummy = new Node(0);
+        Node* temp = dummy;
+        int carry = 0;
+
+        while (l1 != nullptr || l2 != nullptr || carry != 0) {
+            int sum = carry;
+
+            if (l1 != nullptr) {
+                sum += l1->data;
+                l1 = l1->next;
+            }
+
+            if (l2 != nullptr) {
+                sum += l2->data;
+                l2 = l2->next;
+            }
+
+            carry = sum / 10;
+
+            temp->next = new Node(sum % 10);
+            temp = temp->next;
+        }
+
+        Node* result = dummy->next;
+        delete dummy;
+
+        return result;
+    }
+};
+
+int main() {
+    vector<int> arr1 = {2, 4, 3}; // 342
+    vector<int> arr2 = {5, 6, 4}; // 465
+
+    Node* l1 = createList(arr1);
+    Node* l2 = createList(arr2);
+
+    Solution solution;
+    Node* result = solution.addTwoNumbers(l1, l2);
+
+    cout << "First number: ";
+    printList(l1);
+
+    cout << "Second number: ";
+    printList(l2);
+
+    cout << "Sum: ";
+    printList(result);
+
+    return 0;
+}
