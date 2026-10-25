@@ -22,9 +22,9 @@ public:
                 l2 = l2->next;
             }
 
+            Node* newNode = new Node(sum % 10);
             carry = sum / 10;
-
-            temp->next = new Node(sum % 10);
+            temp->next = newNode;
             temp = temp->next;
         }
 
