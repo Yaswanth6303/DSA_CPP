@@ -2,6 +2,10 @@
 #include "../Node.h"
 using namespace std;
 
+/**
+ * TC: O(max(M, N)) 
+ * SC: O(max(M, N))
+ */
 class Solution {
 public:
     Node* addTwoNumbers(Node* l1, Node* l2) {
