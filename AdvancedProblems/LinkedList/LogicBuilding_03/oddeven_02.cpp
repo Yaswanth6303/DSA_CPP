@@ -3,7 +3,7 @@
 using namespace std;
 
 class Solution {
-    public:
+public:
 
     /**
      * Method 1: Brute Force
@@ -11,7 +11,8 @@ class Solution {
      * SC: O(n)
      */
     Node* oddEvenListBrute(Node* &head) {
-        if(head == nullptr && head->next == nullptr) return nullptr;
+        if (head == nullptr || head->next == nullptr)
+            return head;
 
         vector<int> result;
         Node* temp = head;
@@ -20,22 +21,26 @@ class Solution {
             result.push_back(temp->data);
             temp = temp->next->next;
         }
-        if(temp != nullptr) result.push_back(temp->data);
+
+        if (temp != nullptr)
+            result.push_back(temp->data);
 
         temp = head->next;
+
         while (temp != nullptr && temp->next != nullptr) {
             result.push_back(temp->data);
             temp = temp->next->next;
         }
-        if(temp != nullptr) result.push_back(temp->data);
-        
+
+        if (temp != nullptr)
+            result.push_back(temp->data);
+
         int i = 0;
         temp = head;
-        
+
         while (temp != nullptr) {
-            temp->data = result[i];
+            temp->data = result[i++];
             temp = temp->next;
-            i++;
         }
 
         return head;
@@ -47,11 +52,12 @@ class Solution {
      * SC: O(1)
      */
     Node* oddEvenListOptimal(Node* &head) {
-        if(head == nullptr && head->next == nullptr) return nullptr;
+        if (head == nullptr || head->next == nullptr)
+            return head;
 
         Node* odd = head;
         Node* even = head->next;
-        Node* firstEven = head->next;
+        Node* firstEven = even;
 
         while (even != nullptr && even->next != nullptr) {
             odd->next = even->next;
@@ -67,53 +73,27 @@ class Solution {
     }
 };
 
-
 int main() {
     Solution sol;
 
-    // Create linked list: 1 -> 2 -> 3 -> 4 -> 5
-    Node* head1 = new Node(1);
-    head1->next = new Node(2);
-    head1->next->next = new Node(3);
-    head1->next->next->next = new Node(4);
-    head1->next->next->next->next = new Node(5);
+    vector<int> nums = {1, 2, 3, 4, 5};
+
+    Node* head1 = createList(nums);
 
     cout << "Original List: ";
-    Node* temp = head1;
-    while (temp != nullptr) {
-        cout << temp->data << " ";
-        temp = temp->next;
-    }
-    cout << endl;
+    printList(head1);
 
-    // Method 1: Brute Force
     sol.oddEvenListBrute(head1);
 
     cout << "Brute Force: ";
-    temp = head1;
-    while (temp != nullptr) {
-        cout << temp->data << " ";
-        temp = temp->next;
-    }
-    cout << endl;
+    printList(head1);
 
-    // Create a separate list for the optimal method
-    Node* head2 = new Node(1);
-    head2->next = new Node(2);
-    head2->next->next = new Node(3);
-    head2->next->next->next = new Node(4);
-    head2->next->next->next->next = new Node(5);
+    Node* head2 = createList(nums);
 
-    // Method 2: Optimal
     sol.oddEvenListOptimal(head2);
 
     cout << "Optimal: ";
-    temp = head2;
-    while (temp != nullptr) {
-        cout << temp->data << " ";
-        temp = temp->next;
-    }
-    cout << endl;
+    printList(head2);
 
     return 0;
 }
