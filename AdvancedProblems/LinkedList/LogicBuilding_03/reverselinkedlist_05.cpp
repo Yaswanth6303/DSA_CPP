@@ -66,7 +66,7 @@ class ReverseLinkedList {
     }
 };
 
-
+#ifndef REVERSE_LIBRARY
 int main() {
     ReverseLinkedList sol;
 
@@ -101,3 +101,4 @@ int main() {
 
     return 0;
 }
+#endif
