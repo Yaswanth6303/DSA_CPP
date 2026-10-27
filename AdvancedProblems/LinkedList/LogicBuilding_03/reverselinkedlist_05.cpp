@@ -2,7 +2,7 @@
 #include "../Node.h"
 using namespace std;
 
-class Solution {
+class ReverseLinkedList {
     public:
 
     /**
@@ -68,7 +68,7 @@ class Solution {
 
 
 int main() {
-    Solution sol;
+    ReverseLinkedList sol;
 
     vector<int> nums = {1, 2, 3, 4, 5};
 
