@@ -7,7 +7,7 @@ using namespace std;
  * SC: O(max(M, N))
  */
 class Solution {
-    public:
+public:
     Node* addTwoNumbers(Node* l1, Node* l2) {
         Node* dummy = new Node(0);
         Node* temp = dummy;

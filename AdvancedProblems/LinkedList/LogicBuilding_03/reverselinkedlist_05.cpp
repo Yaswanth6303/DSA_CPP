@@ -3,7 +3,7 @@
 using namespace std;
 
 class ReverseLinkedList {
-    public:
+public:
 
     /**
      * Method 1: Brute Force
