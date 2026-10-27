@@ -40,11 +40,11 @@ public:
 };
 
 int main() {
-    vector<int> arr1 = {2, 4, 3}; // 342
-    vector<int> arr2 = {5, 6, 4}; // 465
+    vector<int> nums1 = {2, 4, 3}; // 342
+    vector<int> nums2 = {5, 6, 4}; // 465
 
-    Node* l1 = createList(arr1);
-    Node* l2 = createList(arr2);
+    Node* l1 = createList(nums1);
+    Node* l2 = createList(nums2);
 
     Solution solution;
     Node* result = solution.addTwoNumbers(l1, l2);
