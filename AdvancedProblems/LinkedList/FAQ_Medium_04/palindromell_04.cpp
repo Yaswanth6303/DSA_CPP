@@ -62,10 +62,10 @@ public:
 int main() {
     Solution sol;
 
-    vector<int> nums1 = {1, 2, 3, 2, 1};
+    vector<int> nums = {1, 2, 3, 2, 1};
 
     // Method 1: Brute Force
-    Node* head1 = createList(nums1);
+    Node* head1 = createList(nums);
 
     cout << "Original List: ";
     printList(head1);
@@ -77,7 +77,7 @@ int main() {
          << endl;
 
     // Method 2: Optimal
-    Node* head2 = createList(nums1);
+    Node* head2 = createList(nums);
 
     bool result2 = sol.isPalindromeOptimal(head2);
 
