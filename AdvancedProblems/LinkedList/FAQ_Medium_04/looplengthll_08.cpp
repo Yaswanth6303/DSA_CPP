@@ -7,8 +7,8 @@ public:
 
     /**
      * Method 1: Brute Force
-     * TC:
-     * SC:
+     * TC: O(n)
+     * SC: O(n)
      */
     int findLengthOfLoopBrute(Node* head) {
         Node* temp = head;
@@ -43,8 +43,8 @@ public:
 
     /**
      * Method 2: Optimal Approach
-     * TC:
-     * SC:
+     * TC: O(n)
+     * SC: O(1)
      */
     int findLengthOfLoopOptimal(Node* head) {
         Node* slow = head;
