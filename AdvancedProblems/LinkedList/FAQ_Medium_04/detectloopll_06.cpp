@@ -26,7 +26,7 @@ public:
     }
 
     /**
-     * Method 1: Optimal Approach
+     * Method 2: Optimal Approach
      * TC: O(n)
      * SC: O(1)
      */
