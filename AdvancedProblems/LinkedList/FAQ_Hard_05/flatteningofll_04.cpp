@@ -117,7 +117,7 @@ public:
      * TC: O(n * k)
      * SC: O(k) recursion stack
      */
-    ChildNode* flattenLinkedListBetter(ChildNode* &head) {
+    ChildNode* flattenLinkedListBetterRecursive(ChildNode* &head) {
         if (head == nullptr || head->next == nullptr)
             return head;
 
@@ -173,7 +173,6 @@ public:
 };
 
 int main() {
-
     vector<vector<int>> lists = {
         {5, 7, 8, 30},
         {10, 20},
@@ -194,7 +193,7 @@ int main() {
             temp1 = head1;
         } else {
             temp1->next = newList;
-            temp1 = temp1->next;
+            temp1 = newList;
         }
     }
 
@@ -213,11 +212,11 @@ int main() {
             temp2 = head2;
         } else {
             temp2->next = newList;
-            temp2 = temp2->next;
+            temp2 = newList;
         }
     }
 
-    cout << "Better: ";
+    cout << "Better 1 (Iterative Merge): ";
     head2 = sol.flattenLinkedListBetter(head2);
     printFlattenedList(head2);
 
@@ -232,13 +231,32 @@ int main() {
             temp3 = head3;
         } else {
             temp3->next = newList;
-            temp3 = temp3->next;
+            temp3 = newList;
         }
     }
 
-    cout << "Optimal: ";
+    cout << "Better 2 (Recursive Merge): ";
     head3 = sol.flattenLinkedListOptimal(head3);
     printFlattenedList(head3);
+
+    ChildNode* head4 = nullptr;
+    ChildNode* temp4 = nullptr;
+
+    for (auto& nums : lists) {
+        ChildNode* newList = createChildList(nums);
+
+        if (head4 == nullptr) {
+            head4 = newList;
+            temp4 = head4;
+        } else {
+            temp4->next = newList;
+            temp4 = newList;
+        }
+    }
+
+    cout << "Optimal (Min Heap): ";
+    head4 = sol.flattenLinkedListOptimal(head4);
+    printFlattenedList(head4);
 
     return 0;
 }
