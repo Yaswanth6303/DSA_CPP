@@ -36,8 +36,7 @@ int main() {
     vector<int> cardScore = {1, 2, 3, 4, 5, 6, 1};
     int k = 3;
 
-    cout << "Maximum Card Score: "
-         << sol.maxCardScore(cardScore, k) << endl;
+    cout << "Maximum Card Score: " << sol.maxCardScore(cardScore, k) << endl;
 
     return 0;
 }
