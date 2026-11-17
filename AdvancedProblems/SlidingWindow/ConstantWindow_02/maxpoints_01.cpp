@@ -3,6 +3,10 @@ using namespace std;
 
 class Solution {
 public:
+    /**
+     * TC: O(k)
+     * SC: O(1)
+     */
     int maxCardScore(vector<int>& cardScore, int k) {
         int n = cardScore.size();
 
