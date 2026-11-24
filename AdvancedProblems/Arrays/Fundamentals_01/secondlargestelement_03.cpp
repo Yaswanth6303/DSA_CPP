@@ -1,7 +1,4 @@
-#include <algorithm>
 #include <bits/stdc++.h>
-#include <climits>
-#include <vector>
 using namespace std;
 
 class Solution {
